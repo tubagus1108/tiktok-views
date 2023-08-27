@@ -6,7 +6,7 @@
 </h1>
 Automate TikTok follower bot, like bot, share bot, view bot and more using selenium. Click <a href="https://github.com/">here</a> to report bugs.
 
-![image](https://user-images.githubusercontent.com/103281345/166081404-2ca2610e-90d7-44ee-bda5-66bb714dde24.png)
+![image]()
   
    
 </div>   
@@ -27,4 +27,4 @@ Automate TikTok follower bot, like bot, share bot, view bot and more using selen
 
 This script automates the website https://zefoy.com/ which is a website you can boost your TikTok followers/likes/shares/views. This script automates this specific website to constantly increase your engagement on TikTok instead of you doing it manually. This script was made for educational purposes. I am not responsible for your actions using this script. This code is a few months old, hence why it may not appear as professional but still works to this day.
 
- ![image](https://media.discordapp.net/attachments/1029014776711487531/1029091877150007367/unknown.png)
+ ![image])
