@@ -15,7 +15,7 @@ from undetected_chromedriver import ChromeOptions, Chrome
 from PIL import ImageGrab, Image
 from threading import Thread
 
-
+import json
 
 class Zefoy:
     def __init__(self) -> None:
@@ -244,7 +244,13 @@ class Zefoy:
         print(self.display_banner())
         self.title('Tiktok Zefoy Bot ~ Using Selenium ▏  Status: Loading')
 
-        video_url = input(self._print('?', 'Video Url > ', input=True))
+        # Read JSON input from a file named "input.json"
+        with open('input.json', 'r') as json_file:
+            input_data = json.load(json_file)
+
+        video_url = input_data.get('url')
+        service_choice = input_data.get('service')
+
         video_id = self.get_id(video_url)
 
         self._print('!', 'Browser is loading\n')
@@ -254,23 +260,26 @@ class Zefoy:
         self.title('Tiktok Zefoy Bot ~ Using Selenium ▏  Status: Solving')
         self._print('*', 'Solving The Captcha')
         self.solve()
-        
+
         self.clear()
         self.title('Tiktok Zefoy Bot ~ Using Selenium ▏  Status: N/A')
 
-        self.choice_service()
+        # Use the service_choice from JSON input
+        self.choice = service_choice
 
         self.driver.find_element(By.XPATH, self.paths[self.choice][0]).click()
 
         self.div = int(findall(r'\d+', self.paths[self.choice][0])[-1]) + 5
 
         self.clear()
-        Thread(target = self.display_stats, args = [video_id,]).start()
+        Thread(target=self.display_stats, args=[video_id,]).start()
 
         self.driver.find_element(By.XPATH, self.video_url_box.replace('-', f'{self.div}')).send_keys(video_url)
 
         while True:
             self.task()
+
+
         
 
 if __name__ == '__main__':
